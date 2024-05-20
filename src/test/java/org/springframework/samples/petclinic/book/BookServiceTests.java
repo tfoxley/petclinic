@@ -33,7 +33,6 @@ public class BookServiceTests {
 		owner.addPet(pet);
 	}
 
-
 	@Test
 	void testGetRelevantBooks() {
 		BookService bookService = new BookService();
