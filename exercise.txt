@@ -1,15 +1,18 @@
 Work through the following exercises:
 
--   Unit test is failing
-    -   Make it pass
+-   Unit test is incorrect
+    -   Fix it to assert the proper data
 
 -   We added this new feature that provides a list of books that might
     be relevant to an owner's pet(s) on the Owner Details page.
-    The page loads really slow now.
-    -   Make page load faster
+    Our approach to this is not using the database efficiently.
+    -   Make database query more efficient
 
 -   Eduardo Rodriguez (owner 3) has duplicate books.
     -   Remove duplicates
+
+-   We need to support multiple pet types per owner.
+    - How might we improve this
 
 -   BookService has some poorly written code
     -   Refactor it and make it more maintainable
@@ -17,4 +20,4 @@ Work through the following exercises:
 -   Unit testing
     -   Improve test coverage for BookService
 
-- Are there further optimizations to our calls to the API that could be made?
+- How might you handle the scenario where an owner has multiple pet types?
