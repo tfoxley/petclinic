@@ -24,8 +24,9 @@ public class BookService {
 	 */
 	public List<Book> getRelevantBooks(Owner owner) {
 		List<Book> relatedBooks = new ArrayList<>();
-		for (Pet pet : owner.getPets()) {
-			List<Book> allBooks = bookRepository.findByPetType(pet.getType().getName());
+		List<String> petTypes = getPetTypes(owner);
+		for (String petType : petTypes) {
+			List<Book> allBooks = bookRepository.findByPetType(petType);
 			if (!allBooks.isEmpty()) {
 				for (int i = 0; i < Math.min(RESULT_LIMIT, allBooks.size()); i++) {
 					relatedBooks.add(allBooks.get(i));
@@ -33,5 +34,13 @@ public class BookService {
 			}
 		}
 		return relatedBooks;
+	}
+
+	private List<String> getPetTypes(Owner owner) {
+		List<String> petTypes = new ArrayList<>();
+		for (Pet pet : owner.getPets()) {
+			petTypes.add(pet.getType().getName());
+		}
+		return petTypes;
 	}
 }
