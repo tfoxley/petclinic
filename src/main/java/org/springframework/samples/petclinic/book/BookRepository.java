@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Integer> {
 
-	// Spring Docs found at: https://docs.spring.io/spring-data/jpa/reference/repositories/query-methods-details.html#repositories.special-parameters
+	// Using option 1 or 3 at https://springjava.com/spring-data-jpa/how-to-use-limit-query-results/
+	// is recommended to avoid performance issues with large datasets.
 	@Transactional(readOnly = true)
 	List<Book> findByPetType(String petType);
 }
